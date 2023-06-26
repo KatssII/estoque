@@ -90,7 +90,6 @@
             <th scope="col">SALA</th>
             <th scope="col">DATA RETIRADA</th>
             <th scope="col">ULTIMA PESSOA RETIRADA</th>
-            <th scope="col">CHAVE ESTADO</th>
             <th scope="col">EDITAR CHAVE</th>
             <th scope="col">EXCLUIR CHAVE</th>
             </tr>
@@ -104,12 +103,13 @@
                 echo "<td>".$linha['sala']."</td>";
                 echo "<td>".$linha['dataRetirada']."</td>";
                 echo "<td>".$linha['pessoaRetirada']."</td>";
-                echo "<td>".$linha['estado']."</td>";
-                echo '<td><a href=edit_tabelaChave.php?chave='.$linha['id_chave'].' class="btn btn-outline-warning">✎</a></td>';
+                echo '<td><a href=edit_tabelaChave.php?chave='.$linha['id_chave'].' class="btn btn-outline-warning onclick="exibirPopup()">✎</a></td>';
                 echo '<td><a href=CRUD\delete_chave.php?chave='.$linha['id_chave'].' class="btn btn-outline-danger">🗑</a></td>';
                 echo '</tr>';
             }
             ?>
+
+
         </tbody>
         </table>
         <a href="index_chave.php" class="btn btn-outline-info">CADASTRAR NOVA CHAVE</a>

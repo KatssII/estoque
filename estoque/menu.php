@@ -34,15 +34,20 @@
 
         <div class="d-flex justify-content-center align-items-center" style="height: 75vh;">
             <div>
-                <form method="post" action="index_item.php">
-                    <input type="submit" class="btn btn-secondary btn-lg btn-block" style="width: 450px; height: 70px;" value="Estoque Geral">
+                <form method="post" action="tabela_prodU.php">
+                    <input type="submit" class="btn btn-secondary btn-lg btn-block" style="width: 450px; height: 70px;" value="Estoque Produto Único">
                 </form>
                 <br>
-                <form method="post" action="index_chave.php">
+                
+                <form method="post" action="tabela_prodR.php">
+                    <input type="submit" class="btn btn-secondary btn-lg btn-block" style="width: 450px; height: 70px;" value="Estoque Produto Único">
+                </form>
+                <br>
+                <form method="post" action="tabela_chave.php">
                     <input type="submit" class="btn btn-secondary btn-lg btn-block" style="width: 450px; height: 70px;" value="Estoque de Chaves">
                 </form>
                 <br>
-                <form method="post" action="index_devolucao.php">
+                <form method="post" action="tabela_devolucao.php">
                     <input type="submit" class="btn btn-secondary btn-lg btn-block" style="width: 450px; height: 70px;" value="Devolução de Estoque">
                 </form>
                 <br>
@@ -61,6 +66,9 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
 
 <?php
 session_start();
@@ -84,6 +92,8 @@ if (isset($_SESSION['nome'])) {
     }
 }
 ?>
+
+
     <!-- script do Bootstrap -->
    <script src="js/bootstrap.bundle.min.js"></script>
   </body>

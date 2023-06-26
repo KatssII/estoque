@@ -18,21 +18,6 @@
                         <label for="">Sala:</label>
                         <input type="text" name="sala" id="sala" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="">Ultima Pessoa Retirar:</label>
-                        <input type="text" name="pessoaRetirada" id="pessoaRetirada" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Data da Ultima Retirada:</label>
-                        <input type="date" name="dataRetirada" id="dataRetirada" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado">Estado da Chave:</label>
-                        <select name="estado" id="estado" class="form-control">
-                            <option value="emprestado">emprestado</option>
-                            <option value="no estoque">no estoque</option>
-                        </select>
-                    </div>
                     <br></br>
                     <div class="form-group">
                         <input type="submit" class="btn btn-outline-success" value="CADASTRAR CHAVE">
