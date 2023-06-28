@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/06/2023 às 16:02
+-- Tempo de geração: 28/06/2023 às 16:52
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `databaseestoque`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `baixau`
+--
+
+CREATE TABLE `baixau` (
+  `id_baixaU` int(11) NOT NULL,
+  `causa_baixaU` varchar(80) NOT NULL,
+  `data_baixaU` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `material_baixaU` varchar(80) NOT NULL,
+  `responsavel` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -41,7 +55,7 @@ CREATE TABLE `chave` (
 --
 
 INSERT INTO `chave` (`id_chave`, `sala`, `pessoaRetirada`, `dataRetirada`, `responsavel`, `disponivel_chave`) VALUES
-(2, '4-15', NULL, NULL, NULL, 0);
+(3, 'almoxarifado', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -94,14 +108,13 @@ CREATE TABLE `prod_devolucao` (
 --
 
 INSERT INTO `prod_devolucao` (`id_dev`, `dataDev`, `materialDev`, `unidadeDev`, `qntdDev`, `categoriaDev`, `motivoDev`) VALUES
-(1, NULL, '2023-06-14arduino', 'avulso', 2, 'pedagógico', 'estava quebado'),
-(2, '2023-06-27', 'chave de fenda', 'avulso', 1, 'ferramenta', 'estava quebado'),
+(2, '2023-06-27', 'chave philips', 'avulso', 1, 'ferramenta', 'estava quebado'),
 (3, '0000-00-00', 'arduino', 'avulso', 33, 'pedagógico', 'estava quebado'),
 (4, '2023-06-27', 'arduino', 'caixa', 44, 'pedagógico', 'estava quebado'),
 (5, '2023-06-26', 'oioi', 'caixa', 21, 'pedagógico', 'estava quebado'),
 (6, '0000-00-00', 'chave de fenda', 'caixa', 656, 'pedagógico', 'estava quebado'),
 (7, '0000-00-00', 'sgagsdg', 'caixa', 3245, 'pedagógico', 'estava quebado'),
-(8, '0000-00-00', 'ewtwtfstesf', 'caixa', 2147483647, 'pedagógico', 'estava quebado');
+(9, '2023-06-27', 'arduino', 'avulso', 2, 'pedagógico', 'estava quebado');
 
 -- --------------------------------------------------------
 
@@ -124,7 +137,9 @@ CREATE TABLE `prod_retornavel` (
 --
 
 INSERT INTO `prod_retornavel` (`id_prodR`, `patrimonioR`, `dataEntradaR`, `materialR`, `categoriaR`, `situacao_prodR`, `vista_pr`) VALUES
-(1, 12345643, '2023-06-14', 'arduino', 'pedagógico', 0, '');
+(1, 12345643, '2023-06-14', 'arduino', 'pedagógico', 0, ''),
+(2, 2147483647, '2023-06-28', 'papel higienico', 'limpeza', 0, ''),
+(5, 4323432, '2023-06-28', 'funciona?sera?', 'teste@', 0, '');
 
 -- --------------------------------------------------------
 
@@ -146,7 +161,8 @@ CREATE TABLE `prod_unico` (
 --
 
 INSERT INTO `prod_unico` (`id_prodU`, `dataEntradaU`, `materialU`, `unidadeU`, `quantidadeU`, `categoriaU`) VALUES
-(1, '2023-06-13', 'arduino', 'avulso', 22, 'pedagógico');
+(1, '2023-06-13', 'arduino2', 'avulso', 22, 'pedagógico'),
+(5, '2023-06-28', 'teste', 'caixa', 34, 'pedagógico');
 
 -- --------------------------------------------------------
 
@@ -167,12 +183,17 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `senha`) VALUES
-(2, 'monica', 'monicacr250305@gmail.com', '14687635482', '123456'),
-(3, 'renisson', 'renisson5@gmail.com', '12345432345', '123456');
+(2, 'monica', 'monicacr250305@gmail.com', '14687635482', '123456');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `baixau`
+--
+ALTER TABLE `baixau`
+  ADD PRIMARY KEY (`id_baixaU`);
 
 --
 -- Índices de tabela `chave`
@@ -213,25 +234,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `chave`
 --
 ALTER TABLE `chave`
-  MODIFY `id_chave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_chave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `prod_devolucao`
 --
 ALTER TABLE `prod_devolucao`
-  MODIFY `id_dev` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_dev` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `prod_retornavel`
 --
 ALTER TABLE `prod_retornavel`
-  MODIFY `id_prodR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_prodR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `prod_unico`
 --
 ALTER TABLE `prod_unico`
-  MODIFY `id_prodU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prodU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
